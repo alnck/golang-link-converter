@@ -5,7 +5,8 @@ Başkalarının Trendyol.com bağlantılarını mobil ve web uygulamaları aras�
 
 ### Çalıştırma (Running)
 ---
-`docker compose up`
+`docker compose up` <br>
+`docker compose down //container'ları silmek için kullanabilirsiniz. Image'lar silinmez.`
 
 
 ### Teknik Detaylar
