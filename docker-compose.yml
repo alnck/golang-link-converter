@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on: 
+      - redis 
+      
+  redis:
+    container_name: c-redis
+    image: redis
+    restart: unless-stopped
+    ports: 
+      - 6379:6379
