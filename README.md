@@ -1,4 +1,4 @@
-# Trenyol Link Converter
+# Link Converter
 
 
 Başkalarının Trendyol.com bağlantılarını mobil ve web uygulamaları arasında dönüştürmesine yardımcı olan bir web hizmeti uygulamasıdır. Web uygulamaları URL'leri, mobil uygulamalar ise derin bağlantıları kullanır. Her iki uygulama da, uygulamaların içindeki belirli konumları yeniden yönlendirmek için bağlantıları kullanır. Uygulamalar arasında yönlendirme yapmak istediğinizde, URL'leri derin bağlantılara veya derin bağlantıları URL'lere dönüştürmelisiniz.
