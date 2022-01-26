@@ -2,7 +2,7 @@ package constants
 
 const (
 	DEEPLIK_PREFIX                   = "ty://?Page="
-	WEBURL_PREFIX                    = "https://www.trendyol.com/"
+	WEBURL_PREFIX                    = "https://www.mysite.com/"
 	PRODUCT_DEEPLINK_PAGE            = "Product"
 	PRODUCT_WEBURL_CONTENT_ID_PREFIX = "brand/name-p-"
 	PRODUCT_KEY_CONTENT_ID           = "contentid"

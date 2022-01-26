@@ -1,7 +1,7 @@
 # Link Converter
 
 
-Başkalarının Trendyol.com bağlantılarını mobil ve web uygulamaları arasında dönüştürmesine yardımcı olan bir web hizmeti uygulamasıdır. Web uygulamaları URL'leri, mobil uygulamalar ise derin bağlantıları kullanır. Her iki uygulama da, uygulamaların içindeki belirli konumları yeniden yönlendirmek için bağlantıları kullanır. Uygulamalar arasında yönlendirme yapmak istediğinizde, URL'leri derin bağlantılara veya derin bağlantıları URL'lere dönüştürmelisiniz.
+Başkalarının mysite.com bağlantılarını mobil ve web uygulamaları arasında dönüştürmesine yardımcı olan bir web hizmeti uygulamasıdır. Web uygulamaları URL'leri, mobil uygulamalar ise derin bağlantıları kullanır. Her iki uygulama da, uygulamaların içindeki belirli konumları yeniden yönlendirmek için bağlantıları kullanır. Uygulamalar arasında yönlendirme yapmak istediğinizde, URL'leri derin bağlantılara veya derin bağlantıları URL'lere dönüştürmelisiniz.
 
 ### Çalıştırma (Running)
 ---
@@ -26,7 +26,7 @@ Sistem 2 Endpoint üzerinden çalışır.
 ##### Request ToDeepLink Example
 `   curl -X POST http://localhost:8080/converter/todeeplink
    -H 'Content-Type: application/json'
-   -d '{"Link": "https://www.trendyol.com/sr?q=elbise"}' 
+   -d '{"Link": "https://www.mysite.com/sr?q=elbise"}' 
    `
 ###### Response
 
@@ -44,6 +44,6 @@ Sistem 2 Endpoint üzerinden çalışır.
 ###### Response
 ```
 {
-    "ConvertedLink": "https://www.trendyol.com/brand/name-p-1925865"
+    "ConvertedLink": "https://www.mysite.com/brand/name-p-1925865"
 } 
 ```

@@ -9,7 +9,7 @@ func TestReturnErrorWhenPrefixCorrupt(t *testing.T) {
 		t.Errorf("Error: Deeplink Prefix Corrupt")
 	}
 
-	err = LinkIsValid("https://www.arendyol.com/sr?q=elbise")
+	err = LinkIsValid("https://www.mysite.com/sr?q=elbise")
 	if err == nil {
 		t.Errorf("Error: WebUrl Prefix Corrupt")
 	}

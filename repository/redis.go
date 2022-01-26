@@ -44,7 +44,6 @@ func (repository *RedisRepository) SetKey(key string, value interface{}, ttl int
 func (repository *RedisRepository) GetKey(key string, src interface{}) error {
 	val, err := repository.client.Get(key).Result()
 	if err != nil {
-		//repository.logger.Error("SetKey - error:", zap.Error(err))
 		return err
 	}
 

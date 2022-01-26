@@ -11,10 +11,10 @@ var successToWebUrlList = []struct {
 	link          string
 	convertedLink string
 }{
-	{"ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064", "https://www.trendyol.com/brand/name-p-1925865?boutiqueId=439892&merchantId=105064"},
-	{"ty://?Page=Product&ContentId=1925865", "https://www.trendyol.com/brand/name-p-1925865"},
-	{"ty://?Page=Search&Query=elbise", "https://www.trendyol.com/sr?q=elbise"},
-	{"ty://?Page=Home", "https://www.trendyol.com/"},
+	{"ty://?Page=Product&ContentId=1925865&CampaignId=439892&MerchantId=105064", "https://www.mysite.com/brand/name-p-1925865?boutiqueId=439892&merchantId=105064"},
+	{"ty://?Page=Product&ContentId=1925865", "https://www.mysite.com/brand/name-p-1925865"},
+	{"ty://?Page=Search&Query=elbise", "https://www.mysite.com/sr?q=elbise"},
+	{"ty://?Page=Home", "https://www.mysite.com/"},
 }
 
 func TestSuccessToWebUrlReturnConvertedLink(t *testing.T) {
@@ -35,7 +35,7 @@ func TestSuccessToWebUrlReturnConvertedLink(t *testing.T) {
 func TestReturnNilIfNoQueryParameter(t *testing.T) {
 	converterService := NewConverterService(nil)
 
-	requestModel := models.RequestModel{Link: "https://www.trendyol.com/sr?=elbise"}
+	requestModel := models.RequestModel{Link: "https://www.mysite.com/sr?=elbise"}
 
 	_, errDeepLink := converterService.ToDeepLink(requestModel)
 	if errDeepLink == nil || errDeepLink.Message != MESSAGE_LINK_HAS_NOT_QUERY_PARAMETERS {
@@ -62,7 +62,7 @@ func TestLinkHasNotContentid(t *testing.T) {
 		t.Errorf("ToWebUrl Has Not ContentId empty FAIL")
 	}
 
-	requestModel = models.RequestModel{Link: "https://www.trendyol.com/casio/erkek-kol-saati-p-?merchantId=105064"}
+	requestModel = models.RequestModel{Link: "https://www.mysite.com/casio/erkek-kol-saati-p-?merchantId=105064"}
 
 	_, errDeepLink := converterService.ToDeepLink(requestModel)
 	if errWeb == nil || errDeepLink.Message != MESSAGE_LINK_HAS_NOT_CONTENTID {
