@@ -2,27 +2,46 @@ package repository
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"strconv"
+	"sync"
 	"time"
 
 	"github.com/go-redis/redis"
 	"go.uber.org/zap"
 )
 
+var lock sync.Mutex
+
 type RedisRepository struct {
 	client *redis.Client
 	logger *zap.Logger
 }
 
-func NewRedisRepository(logger *zap.Logger) *RedisRepository {
-	client := redis.NewClient(&redis.Options{
-		Addr:     os.Getenv("CONNECTION_STRING"),
-		Password: os.Getenv("REDIS_PASSWORD"),
-		DB:       0,
-	})
+var RedisRepositoryInstance *RedisRepository
 
-	return &RedisRepository{client: client, logger: logger}
+func NewRedisRepository(logger *zap.Logger) *RedisRepository {
+
+	if RedisRepositoryInstance == nil {
+
+		lock.Lock()
+		defer lock.Unlock()
+
+		if RedisRepositoryInstance == nil {
+			client := redis.NewClient(&redis.Options{
+				Addr:     os.Getenv("CONNECTION_STRING"),
+				Password: os.Getenv("REDIS_PASSWORD"),
+				DB:       0,
+			})
+			RedisRepositoryInstance = &RedisRepository{client: client, logger: logger}
+		} else {
+			return RedisRepositoryInstance
+
+		}
+	}
+	fmt.Println("zaten var")
+	return RedisRepositoryInstance
 }
 
 func (repository *RedisRepository) SetKey(key string, value interface{}, ttl int) {
